@@ -3,12 +3,34 @@ import './App.css';
 import { React, useState } from 'react';
 import Form from './components/Form';
 import Member from './components/Member';
+// import React from 'react';
+
+const testList = [
+  {
+    name: 'Bruce Banner',
+    email: 'incredible@hulk.com',
+    role: 'Smash'
+  },
+  {
+    name: 'Steve',
+    email: 'icandothis@allday.com',
+    role: 'Fearless Leader'
+  },
+  {
+    name: 'Thor Odinsson',
+    email: 'chris@hemsworth.com',
+    role: 'Strongest Avenger'
+  }
+]
 
 function App() {
   // create a slice of state to keep track of all your members
-  const [members, setMembers] = useState([]);
+  const [members, setMembers] = useState(testList);
+  // setMembers(testList);
 
   // create a function that updates the members with a new member when Form submits a new member and then pass it down as props
+
+
 
   return (
     <div className="App">
@@ -27,11 +49,16 @@ function App() {
         </a> */}
         <h1>Team Builder</h1>
       </header>
-      <div className='form-container'>
-        <Form />
-      </div>
-      <div>
-        <Member />
+
+      <Form setMembers={ setMembers }/>
+      
+      <div className='member-list-container'>
+        {
+          members.map((member, index) => {
+            console.log(member, index);
+            return <Member key={ index } member={ member }/>
+          })
+        }
       </div>
     </div>
   );
