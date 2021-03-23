@@ -23,7 +23,7 @@ export default function Form(props) {
             role: formValues.role.trim(),
         }
 
-        setMembers({...members, newMember})
+        setMembers([...members, newMember])
         console.log(members);
     
     };
