@@ -1,8 +1,15 @@
 // import logo from './logo.svg';
 import './App.css';
-import Form from './components/Form'
+import { React, useState } from 'react';
+import Form from './components/Form';
+import Member from './components/Member';
 
 function App() {
+  // create a slice of state to keep track of all your members
+  const [members, setMembers] = useState([]);
+
+  // create a function that updates the members with a new member when Form submits a new member and then pass it down as props
+
   return (
     <div className="App">
       <header className="App-header">
@@ -20,8 +27,11 @@ function App() {
         </a> */}
         <h1>Team Builder</h1>
       </header>
-      <div>
+      <div className='form-container'>
         <Form />
+      </div>
+      <div>
+        <Member />
       </div>
     </div>
   );
