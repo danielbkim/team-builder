@@ -27,10 +27,8 @@ function App() {
   // create a slice of state to keep track of all your members
   const [members, setMembers] = useState(testList);
   // setMembers(testList);
-
+  console.log(members);
   // create a function that updates the members with a new member when Form submits a new member and then pass it down as props
-
-
 
   return (
     <div className="App">
@@ -50,7 +48,7 @@ function App() {
         <h1>Team Builder</h1>
       </header>
 
-      <Form setMembers={ setMembers }/>
+      <Form members={ members } setMembers={ setMembers }/>
       
       <div className='member-list-container'>
         {

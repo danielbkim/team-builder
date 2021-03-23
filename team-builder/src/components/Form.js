@@ -2,9 +2,8 @@ import { React, useState } from 'react';
 
 const initialFormValues = { name: "", email: "", role: "" };
 
-
-
 export default function Form(props) {
+    const { members, setMembers } = props;
 
     const [formValues, setFormValues] = useState(initialFormValues);
 
@@ -17,7 +16,15 @@ export default function Form(props) {
     
     const submit = (e) => {
         e.preventDefault();
-        
+        console.log(members);
+        const newMember = {
+            name: formValues.name.trim(),
+            email: formValues.email.trim(),
+            role: formValues.role.trim(),
+        }
+
+        setMembers({...members, newMember})
+        console.log(members);
     
     };
     console.log(props);
